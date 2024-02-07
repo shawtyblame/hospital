@@ -6,7 +6,9 @@ public interface IUserService
 {
     public Task RegisterAsync(RegistrationDto registrationDto);
     public Task<bool> SignInAsync(UserCredentialsDto credentialsDto);
+    public Task CreateMedicalCardAsync(int userId);
     public Task UpdateUserAsync(User user);
-    public Task CreateInfoAsync(UserInfo userInfo);
-    public Task GetUserAsync(int id);
+    public Task CreateInfoAsync(UserInfoDto userInfoDto);
+    public Task<User?> GetUserAsync(int id);
+    public void GenerateQrCode(int userId, UserRequiredDto userRequiredDto);
 }
