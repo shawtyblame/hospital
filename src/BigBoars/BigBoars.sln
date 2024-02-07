@@ -5,9 +5,11 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigBoars.Domain", "BigBoars.Domain\BigBoars.Domain.csproj", "{391964C7-B9D2-4241-A501-081B4866622E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBoars.EntityFramework", "BigBoars.EntityFramework\BigBoars.EntityFramework.csproj", "{F10D824D-7A38-4AD4-86B6-83F511A9DEAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigBoars.EntityFramework", "BigBoars.EntityFramework\BigBoars.EntityFramework.csproj", "{F10D824D-7A38-4AD4-86B6-83F511A9DEAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBoars.Application", "BigBoars.Application\BigBoars.Application.csproj", "{9212E042-3C07-482A-977B-F14D6DC18A8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigBoars.Application", "BigBoars.Application\BigBoars.Application.csproj", "{9212E042-3C07-482A-977B-F14D6DC18A8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBoars.Api", "BigBoars.Api\BigBoars.Api.csproj", "{43F15AA0-5D5A-444E-8902-E5BFD37AECC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{9212E042-3C07-482A-977B-F14D6DC18A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9212E042-3C07-482A-977B-F14D6DC18A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9212E042-3C07-482A-977B-F14D6DC18A8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43F15AA0-5D5A-444E-8902-E5BFD37AECC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43F15AA0-5D5A-444E-8902-E5BFD37AECC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43F15AA0-5D5A-444E-8902-E5BFD37AECC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43F15AA0-5D5A-444E-8902-E5BFD37AECC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

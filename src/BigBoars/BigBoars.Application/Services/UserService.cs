@@ -39,6 +39,7 @@ public class UserService(ApplicationDbContext context) : IUserService
 
     public void GenerateQrCode(int userId, UserRequiredDto userRequiredDto)
     {
+        License.LicenseKey = "IRONSUITE.FOSIUSLEGEND.GMAIL.COM.16473-80AC91A93A-B7V2MGG-WHEEPUW6BPID-YCBSW2XDLGYT-ELFZLCOVNPMC-LUQKNRDOW5SX-EMZTKOJYGJYC-2RRPGZ3LN3LW-6J2FUL-TSFERM5ZOXKLUA-DEPLOYMENT.TRIAL-B5NOGC.TRIAL.EXPIRES.27.FEB.2024";
         var qr = BarcodeWriter.CreateBarcode($"{userId};{userRequiredDto}", BarcodeEncoding.QRCode);
         string rootPath = Directory.GetCurrentDirectory();
         string path = rootPath + @"Resources\QrCodes";
@@ -49,7 +50,7 @@ public class UserService(ApplicationDbContext context) : IUserService
     // Также для qr
     public async Task<User?> GetUserAsync(int id)
     {
-        return await context.Users.FirstOrDefaultAsync(x => x.Id == id);
+        return await context.Users.Include(x => x.Gender).Include(x => x.Credentials).Include(x => x.Credentials!.Role).FirstOrDefaultAsync(x => x.Id == id);
     }
 
     public async Task RegisterAsync(RegistrationDto registrationDto)
@@ -102,10 +103,10 @@ public class UserService(ApplicationDbContext context) : IUserService
 
     private async Task<bool> IsExistBeforeAppendingUser(RegistrationDto registrationDto)
     {
-        bool isExistUserDatas = await context.UserCredentials
+        bool isExistUserDatas = (await context.UserCredentials
             .AnyAsync(x => x.Login == registrationDto.UserCredentials!.Login) 
             && await context.Users
-            .AnyAsync(x => x.PhoneNumber == registrationDto.UserRequired!.Phone) 
+            .AnyAsync(x => x.PhoneNumber == registrationDto.UserRequired!.Phone))
             is false? false : throw new ArgumentException("Пользователь уже существует");
 
         bool isExistGender =
